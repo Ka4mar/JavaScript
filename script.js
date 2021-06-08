@@ -1,46 +1,60 @@
-// 1. С помощью цикла while вывести все простые числа в промежутке от 0 до 100.
+// 1. Написать функцию, преобразующую число в объект. Передавая на вход число от 0 до 999
+
+/*
+let num = Number(prompt("Введите число от 0 до 999: "));
 
 
-let simple = 2;
+function transformation(number){
 
+    let newObj =  {units : 0 , dozens : 0, hundreds :0};
+   
 
- while (simple <= 100) {
-    loop: for ( i = 2; i <= simple; i++) {
-        if (simple == i) {
-            console.log(i)
+    if (number > 999) {
+        console.log(newObj = {})
+        
+    }else{
+        for( let key in newObj) {
+           newObj[key] = (number % 10)
+
+           number = (number - number % 10) /10
         }
-        if(simple % i == 0) {
-            break loop;
-        }
- 
-     }
-    
-    simple++;
- }
+    }
+    return  console.log(newObj)
+}
 
+transformation(num);
+*/
 
 // 2. Организовать функцию countBasketPrice, которая будет считать стоимость корзины
 
-let basketr = [ 345, 199, 45, 433, 861, 11, 286];
-let praceBasket = basketr.reduce(function(summa, elem) {
-    return summa + elem
-}, 0 )
+let basketr = [ {name: "apple", price: 666}, {name: "samsung", price: 666}, {name: "sony", price: 666} ];
 
-console.log(praceBasket);
+ function basketSumm(summa) {
+    let sum = 0
+    let news = 0;
+    for (let i = 0; i <= summa.length; i++){
+        news = summa[i];
+        console.log(news)
+        for( let key in news) {
+            let newKey = key
+            console.log(newKey)
+            if(newKey == 'price'){
+            
+                console.log(news[newKey])
+                sum += news[newKey]
+            }
+        }
+    }
+    return console.log(sum)
+}
 
+basketSumm(basketr);
 
-// 3. Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла.
+/*
+// 3. Подумать над глобальными сущностями.
 
-for ( i = 0; i < 10; console.log(i++)) {
+Можно добавить свойство quantity - которое будет хранить колличество одинакового товара в корзине,
+еще можно попробовать добавить метод для подсчета продуктов одинаковых , чтобы потом общий подсчет корзины считал уже посчитаную сумму дублированого продукта,
+но не очень уверен что это будет оправданно , потому  что метод посчета корзины общий и так будет)   не могу понять как определить нужность и оправданность кода) со схожим смыслом)
 
-};
-
-
-// 4. Нарисовать пирамиду с 20 рядами с помощью console.log, как показано на рисунке:
-let star = "x";
-
-while (star.length <= 20) {
-    console.log(star)
-    star+= "x";
-};
-
+*/
