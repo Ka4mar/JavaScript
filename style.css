@@ -1,0 +1,84 @@
+.body {
+    margin: 0;
+    padding: 0;
+}
+
+.board {
+
+    margin: 0;
+    padding-top: 25px;
+    padding-left: 25px;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.black {
+    position: relative;
+    width: 12.5%;
+    height: 12.5%;
+    background-color: black;
+    color: red;
+}
+
+.white {
+    position: relative;
+    width: 12.5%;
+    height: 12.5%;
+    background-color: white;
+    color: red;
+}
+
+.num {
+    position: absolute;
+    right: 35px;
+    top: -25px
+}
+
+.let {
+    position: absolute;
+    right: 88px;
+    top: 25px;
+}
+
+.catalog {
+    margin: 0 auto;
+    width: 1400px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 28%;
+    margin-right: 20px;
+    margin-left: 20px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+
+}
+
+.card_butt {
+    width: 140px;
+    height: 35px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+
+
+.card_name {
+    font-size: 35px;
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.card_style {
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-right: 10px;
+}
