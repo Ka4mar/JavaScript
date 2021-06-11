@@ -1,60 +1,110 @@
-// 1. Написать функцию, преобразующую число в объект. Передавая на вход число от 0 до 999
-
+let board = document.querySelector(".board");
+let catalog = document.querySelector(".catalog");
+// ` 1. Создать функцию, генерирующую шахматную доску. чтобы доска работала) ёё надо будет разкоментировать в HTML если захотите проверить работу))
 /*
-let num = Number(prompt("Введите число от 0 до 999: "));
 
 
-function transformation(number){
+function chessboard(x){
+    let num = 0
+    let letters = ["A", "B", "C", "D", "E", "F", "G", "K"]
+    let leters_num= -1
 
-    let newObj =  {units : 0 , dozens : 0, hundreds :0};
-   
+    for( i = 0; i < 8; i++){
 
-    if (number > 999) {
-        console.log(newObj = {})
-        
-    }else{
-        for( let key in newObj) {
-           newObj[key] = (number % 10)
+        for( j = 0; j < 8; j++){
 
-           number = (number - number % 10) /10
+            if((i+j) % 2 != 0){
+                x.insertAdjacentHTML("beforeend", "<div class = black></div>") 
+            }
+            else{
+                x.insertAdjacentHTML("beforeend", `<div class = white></div>`)
+            }
+            if(i == 0 && j == 0){
+                x.lastChild.insertAdjacentHTML("afterbegin",`<div class = num>${num+=1}</div> <div class = let>${letters[leters_num+=1]}</div> `)
+            }else{
+                if(i == 0){
+                    x.lastChild.insertAdjacentHTML("afterbegin", `<span class = num>${num+=1}</span>`)
+                }
+                if (j == 0){
+                    x.lastChild.insertAdjacentHTML("afterbegin", `<span class = let>${letters[leters_num+=1]}</span>`)
+                    
+                }
+            }
         }
+        
     }
-    return  console.log(newObj)
+    
 }
 
-transformation(num);
-*/
+chessboard(board);
 
-// 2. Организовать функцию countBasketPrice, которая будет считать стоимость корзины
 
-let basketr = [ {name: "apple", price: 666}, {name: "samsung", price: 666}, {name: "sony", price: 666} ];
 
- function basketSumm(summa) {
+
+// 2. Сделать генерацию корзины динамической
+
+
+let basketr = [ {name:"samsung", price: 666},{name:"apple", price: 666},{name:"sony", price: 666}, {name:"lg", price: 666},{name:"sven", price: 666}, ];
+
+ function basketSumm(summa, block) {
     let sum = 0
     let news = 0;
     for (let i = 0; i <= summa.length; i++){
         news = summa[i];
-        console.log(news)
+            
         for( let key in news) {
             let newKey = key
-            console.log(newKey)
+                
             if(newKey == 'price'){
-            
-                console.log(news[newKey])
+                
+                    
                 sum += news[newKey]
             }
         }
     }
-    return console.log(sum)
+    if( summa.length == 0){
+   
+        block.insertAdjacentHTML("beforeend", `<span>Корзина пуста</span>`)
+        
+    }else{
+        block.insertAdjacentHTML("beforeend", `<span>В корзине: ${summa.length} товаров на сумму ${sum} рублей</span>`)
+    }
+    
 }
 
-basketSumm(basketr);
-
-/*
-// 3. Подумать над глобальными сущностями.
-
-Можно добавить свойство quantity - которое будет хранить колличество одинакового товара в корзине,
-еще можно попробовать добавить метод для подсчета продуктов одинаковых , чтобы потом общий подсчет корзины считал уже посчитаную сумму дублированого продукта,
-но не очень уверен что это будет оправданно , потому  что метод посчета корзины общий и так будет)   не могу понять как определить нужность и оправданность кода) со схожим смыслом)
-
+basketSumm(basketr, board);
 */
+
+
+
+
+
+
+// 3.  Сделать так, чтобы товары в каталоге выводились при помощи JS:
+
+
+let product = [ {name:"samsung", img:"https://ilounge.ua/files/products/apple-iphone-12-pro-max-pacific-blue-kupit_1.1000x.jpg", description:"Apple iPhone 12 Pro Max — новейший флагман с передовым набором технических характеристик и функций", price: 666},{name:"apple", img:"https://ilounge.ua/files/products/apple-iphone-12-pro-max-pacific-blue-kupit_1.1000x.jpg",description:"Apple iPhone 12 Pro Max — новейший флагман с передовым набором технических характеристик и функций", price: 666},{name:"sony", img:"https://ilounge.ua/files/products/apple-iphone-12-pro-max-pacific-blue-kupit_1.1000x.jpg",description:"Apple iPhone 12 Pro Max — новейший флагман с передовым набором технических характеристик и функций", price: 666}, {name:"lg", img:"https://ilounge.ua/files/products/apple-iphone-12-pro-max-pacific-blue-kupit_1.1000x.jpg",description:"Apple iPhone 12 Pro Max — новейший флагман с передовым набором технических характеристик и функций", price: 666},{name:"sven", img:"https://ilounge.ua/files/products/apple-iphone-12-pro-max-pacific-blue-kupit_1.1000x.jpg",description:"Apple iPhone 12 Pro Max — новейший флагман с передовым набором технических характеристик и функций", price: 666}, ];
+
+
+class Catalog{
+
+    constructor(arr){
+        this.arr = arr;
+       
+    }
+
+    creatiItem(){
+        this.arr.forEach(({name, img,description, price}) => {
+            catalog.insertAdjacentHTML("beforeend", `<div class = card>
+                                                        <span class = card_name>${name}</span>
+                                                        <img src = ${img}>
+                                                        <span class = card_style card_desc>О товаре: ${description} </span>
+                                                        <span class =  card_style card_price>Цена: ${price} рублей</span>
+                                                        <button class = card_butt>Добавить в корзину</button>
+                                                    </div>`) 
+        });
+    }
+}
+
+let cat = new Catalog(product);
+cat.creatiItem();
