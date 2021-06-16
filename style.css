@@ -9,7 +9,7 @@
     padding-top: 25px;
     padding-left: 25px;
     width: 600px;
-    height: 600px;
+    height: 100px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -81,4 +81,48 @@
     margin-top: 10px;
     margin-left: 20px;
     padding-right: 10px;
+}
+
+
+.modal-window {
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    max-height: 1100px;
+
+    top: 15%;
+    left: 25%;
+
+}
+
+.open {
+    opacity: 1;
+    z-index: 666;
+}
+
+.slider_next {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(177, 170, 170);
+    border-radius: 50%;
+
+}
+
+.slider_prev {
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(177, 170, 170);
+    border-radius: 50%;
+
+
+}
+
+.close {
+    display: none;
 }
