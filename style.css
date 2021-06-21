@@ -126,3 +126,25 @@
 .close {
     display: none;
 }
+
+#popup {
+    display: none;
+    position: absolute;
+    left: 30%;
+    top: 10%;
+    width: 600px;
+    height: 500px;
+    background-color: grey;
+}
+
+#section-1 {
+    display: block;
+}
+
+#section-2 {
+    display: none;
+}
+
+#section-3 {
+    display: none;
+}
